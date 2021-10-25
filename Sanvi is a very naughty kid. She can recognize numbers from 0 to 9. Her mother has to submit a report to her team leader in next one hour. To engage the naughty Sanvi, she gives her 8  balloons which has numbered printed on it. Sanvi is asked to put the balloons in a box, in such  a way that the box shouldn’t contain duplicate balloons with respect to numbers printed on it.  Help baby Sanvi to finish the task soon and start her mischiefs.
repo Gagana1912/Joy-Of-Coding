@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main()
+{
+   int arr[10],box[10],n,i,j;
+   printf("enter no of array lements:");
+   scanf("%d",&n);
+   printf("enter array elements\n");
+   for(int i=0;i<n;i++)
+   {
+     scanf("%d",&arr[i]);
+   }
+   printf("Elements accepted\n");
+   for(i=0;i<n;i++)
+   {
+       printf("%d\n",arr[i]);
+   }
+   printf("elements inside box are\n");
+   for(i=0;i<n;i++)
+   {
+      for(j=0;j<i;j++)
+      {
+         if(arr[i] == arr[j])
+           break;
+      }
+      if(i == j)
+        printf("%d\n",arr[i]);
+   }
+   return 0;
+}
