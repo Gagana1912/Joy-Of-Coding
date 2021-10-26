@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int i,j,first=0;
+void main()
+{
+   char str[30],abbrev[10];
+   printf("Enter the string:\n");
+   gets(str);
+   again:
+   while(str[i]!= ' ')
+   {
+     if(first==0)
+     {
+        abbrev[j++]=str[i];
+     }
+     first++;
+     i++;
+     if(i==strlen(str)-1)
+     {
+        goto end;
+     }
+   }
+   if(str[i]== ' ')
+  {
+     first=0;
+     i++;
+     goto again;
+  }
+  end:
+  abbrev[j++]='\0';
+  printf("The abbreviation of %s is %s",str,abbrev);
+  getch();
+}
