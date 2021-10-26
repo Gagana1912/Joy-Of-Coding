@@ -27,6 +27,6 @@ int main()
 		}
 	}
 	printf("\n %c character occuring %d times in given string", result,count);
-    return 0;
+        return 0;
 }
 
