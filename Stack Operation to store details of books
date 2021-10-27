@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 5
+
+struct books
+{
+    char Bname[20],Bauthor[20];
+    int Bid;
+    float Bprice;
+};
+typedef struct books B;
+B* push(B*s,int *top,int *n)
+{
+    if((*top) == (*n)-1)
+    {
+        printf("Books can't be inserted\n");
+        (*n)=(*n)*2;
+        s=(B*)realloc(s,sizeof(B)*(*n));
+    }
+    (*top)++;
+    printf("enter book name,book author,book id,book price\n");
+    scanf("%s%s%d%f",s[*top].Bname,s[*top].Bauthor,&(s[*top].Bid),&(s[*top].Bprice));
+    return s;
+}
+
+void pop(B*s,int *top)
+{
+    if((*top) == -1)
+    {
+        printf("Books can't be removed\n");
+        return;
+    }
+    printf("Popped Book is Bname=%s\n Bauthor=%s\n Bid=%d\n Bprice=%f\n",s[*top].Bname,s[*top].Bauthor,s[*top].Bid,s[*top].Bprice);
+    (*top)--;
+}
+void display(B*s,int top)
+{
+    if(top == -1)
+    {
+        printf("Books can't be removed\n");
+        return;
+    }
+    for(int i=top;i>=0;i--)
+        printf("Bname=%s\n Bauthor=%s\n Bid=%d\n Bprice=%f\n",s[i].Bname,s[i].Bauthor,s[i].Bid,s[i].Bprice);
+}
+int main()
+{
+    B*s;
+    int top=-1,ch,n;
+    s=(B*)malloc(sizeof(B)*n);
+    printf("enter no of books:");
+    scanf("%d",&n);
+    while(1)
+    {
+        printf(" 1.Insert Book\n 2.Delete Book\n 3.Display\n 4.Exit\n Enter choice:");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:push(s,&top,&n);
+                   break;
+            case 2:pop(s,&top);
+                   break;
+            case 3:display(s,top);
+                   break;
+            default:return 0;
+            }
+    }
+}
