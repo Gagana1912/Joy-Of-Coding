@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+class Singleton
+{
+    static Singleton*instance;
+    int data;
+
+    Singleton()
+    {
+        data=0;
+    }
+public:
+    static Singleton*getinstance()
+    {
+        if(!instance)
+            instance=new Singleton;
+        return instance;
+    }
+    int getdata()
+    {
+        return this->data;
+    }
+    void setdata(int data)
+    {
+        this->data=data;
+    }
+};
+Singleton*Singleton::instance=0;
+
+int main()
+{
+    Singleton*s=s->getinstance();
+    cout<<s->getdata()<<endl;
+    s->setdata(100);
+    cout<<s->getdata()<<endl;
+    return 0;
+}
